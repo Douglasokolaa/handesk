@@ -20,7 +20,6 @@ class UpdateTicketCreationKpis
      * Handle the event.
      *
      * @param  TicketCreated  $event
-     *
      * @return void
      */
     public function handle(TicketCreated $event)

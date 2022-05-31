@@ -13,11 +13,11 @@ class ChangePriority extends Action
     {
         return [
             Select::make('priority')->options([
-                    Ticket::PRIORITY_LOW       => ucfirst(Ticket::priorityNameFor(Ticket::PRIORITY_LOW)),
-                    Ticket::PRIORITY_NORMAL    => ucfirst(Ticket::priorityNameFor(Ticket::PRIORITY_NORMAL)),
-                    Ticket::PRIORITY_HIGH      => ucfirst(Ticket::priorityNameFor(Ticket::PRIORITY_HIGH)),
-                    Ticket::PRIORITY_BLOCKER   => ucfirst(Ticket::priorityNameFor(Ticket::PRIORITY_BLOCKER)),
-                ]
+                Ticket::PRIORITY_LOW       => ucfirst(Ticket::priorityNameFor(Ticket::PRIORITY_LOW)),
+                Ticket::PRIORITY_NORMAL    => ucfirst(Ticket::priorityNameFor(Ticket::PRIORITY_NORMAL)),
+                Ticket::PRIORITY_HIGH      => ucfirst(Ticket::priorityNameFor(Ticket::PRIORITY_HIGH)),
+                Ticket::PRIORITY_BLOCKER   => ucfirst(Ticket::priorityNameFor(Ticket::PRIORITY_BLOCKER)),
+            ]
             ),
         ];
     }

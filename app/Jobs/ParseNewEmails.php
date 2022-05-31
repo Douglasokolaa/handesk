@@ -19,9 +19,9 @@ class ParseNewEmails implements ShouldQueue
     public $messagesParsed = 0;
 
     protected $handlers = [
-      NewIdeaEmailParser::class,
-      NewCommentEmailParser::class,
-      NewTicketEmailParser::class,
+        NewIdeaEmailParser::class,
+        NewCommentEmailParser::class,
+        NewTicketEmailParser::class,
     ];
 
     public function handle(Mailbox $pop3)

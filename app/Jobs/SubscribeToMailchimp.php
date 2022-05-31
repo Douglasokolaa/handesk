@@ -37,8 +37,7 @@ class SubscribeToMailchimp implements ShouldQueue
     /**
      * Execute the job.
      *
-     * @param Mailchimp $mailchimp
-     *
+     * @param  Mailchimp  $mailchimp
      * @return void
      */
     public function handle(Mailchimp $mailchimp)

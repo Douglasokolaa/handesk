@@ -77,9 +77,9 @@ class Bitbucket implements IssueCreator
         //$issue->setCredentials($this->auth);
         $class->getClient()->setApiVersion('2.0')->addListener(
             new OAuth2Listener(static::$oauthParameters ?? [
-                    'client_id'         => config('services.bitbucket.oauth.key'),
-                    'client_secret'     => config('services.bitbucket.oauth.secret'),
-                ])
+                'client_id'         => config('services.bitbucket.oauth.key'),
+                'client_secret'     => config('services.bitbucket.oauth.secret'),
+            ])
         );
     }
 }

@@ -22,7 +22,6 @@ class TicketEscalated extends Notification implements ShouldQueue
      * Get the notification's delivery channels.
      *
      * @param  mixed  $notifiable
-     *
      * @return array
      */
     public function via($notifiable)
@@ -38,7 +37,6 @@ class TicketEscalated extends Notification implements ShouldQueue
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     *
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
@@ -47,10 +45,10 @@ class TicketEscalated extends Notification implements ShouldQueue
             ->subject(__('notification.ticketEscalated').": #{$this->ticket->id}: {$this->ticket->title}")
             ->replyTo(config('mail.fetch.username'))
             ->view('emails.ticket', [
-                    'title'  => __('notification.ticketEscalated'),
-                    'ticket' => $this->ticket,
-                    'url'    => route('tickets.show', $this->ticket),
-                ]
+                'title'  => __('notification.ticketEscalated'),
+                'ticket' => $this->ticket,
+                'url'    => route('tickets.show', $this->ticket),
+            ]
             );
         if ($this->ticket->requester->email) {
             $mail->from($this->ticket->requester->email, $this->ticket->requester->name);
@@ -69,7 +67,6 @@ class TicketEscalated extends Notification implements ShouldQueue
      * Get the array representation of the notification.
      *
      * @param  mixed  $notifiable
-     *
      * @return array
      */
     public function toArray($notifiable)

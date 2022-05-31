@@ -13,7 +13,6 @@ class UpdateReplyKpis
      * Handle the event.
      *
      * @param  TicketCommented  $event
-     *
      * @return void
      */
     public function handle(TicketCommented $event)

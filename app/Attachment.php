@@ -20,7 +20,7 @@ class Attachment extends BaseModel
     }
 
     /**
-     * @param IncomingMail $mail
+     * @param  IncomingMail  $mail
      * @param $attachable
      */
     public static function storeAttachmentsFromEmail($mail, $attachable)

@@ -27,7 +27,6 @@ class TicketPolicy
      *
      * @param  \App\User  $user
      * @param  \App\Ticket  $ticket
-     *
      * @return mixed
      */
     public function view(User $user, Ticket $ticket)
@@ -41,7 +40,6 @@ class TicketPolicy
      * Determine whether the user can create tickets.
      *
      * @param  \App\User  $user
-     *
      * @return mixed
      */
     public function create(User $user)
@@ -54,7 +52,6 @@ class TicketPolicy
      *
      * @param  \App\User  $user
      * @param  \App\Ticket  $ticket
-     *
      * @return mixed
      */
     public function update(User $user, Ticket $ticket)
@@ -67,7 +64,6 @@ class TicketPolicy
      *
      * @param  \App\User  $user
      * @param  \App\Ticket  $ticket
-     *
      * @return mixed
      */
     public function delete(User $user, Ticket $ticket)

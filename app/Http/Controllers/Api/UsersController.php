@@ -3,32 +3,32 @@
 namespace App\Http\Controllers\Api;
 
 use App\User;
-use Illuminate\Http\Request;
 use Hash;
+use Illuminate\Http\Request;
 
 class UsersController extends ApiController
 {
-    public function index(Request $request){
+    public function index(Request $request)
+    {
+        $offset      = (isset($request->offset)) ? $request->offset : 0;
+        $num_results = (isset($request->num_results)) ? $request->num_results : 10;
 
-    	$offset = (isset($request->offset)) ? $request->offset : 0;
-    	$num_results = (isset($request->num_results)) ? $request->num_results : 10;
+        $users = User::take($num_results)->skip($offset)->get();
 
-    	$users = User::take($num_results)->skip($offset)->get();
-    	return response()->json( $users );
+        return response()->json($users);
     }
-    
+
     public function store(Request $request)
     {
-      $users=new User;
-      $users->name=$request->get('name');
-      $users->email=$request->get('email');
-      $users->password=Hash::make($request->get('password'));
+        $users          =new User;
+        $users->name    =$request->get('name');
+        $users->email   =$request->get('email');
+        $users->password=Hash::make($request->get('password'));
 
-      $users->save();
+        $users->save();
 
-      return $this->respond([
+        return $this->respond([
             'success' => true,
         ]);
     }
-
 }

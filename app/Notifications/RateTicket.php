@@ -18,9 +18,10 @@ class RateTicket extends Notification
 
     public function via($notifiable)
     {
-        if (method_exists($notifiable, 'shouldBeNotified') && !$notifiable->shouldBeNotified() ){
+        if (method_exists($notifiable, 'shouldBeNotified') && ! $notifiable->shouldBeNotified()) {
             return [];
         }
+
         return ['mail'];
     }
 
@@ -30,10 +31,10 @@ class RateTicket extends Notification
             ->subject(__('notification.rateTicket').": #{$this->ticket->id}: {$this->ticket->title}")
             ->replyTo(config('mail.fetch.username'))
             ->view('emails.rateTicket', [
-                    'title'   => __('notification.rateTicket'),
-                    'ticket'  => $this->ticket,
-                    'url'     => route('requester.tickets.rate', $this->ticket->public_token),
-                ]
+                'title'   => __('notification.rateTicket'),
+                'ticket'  => $this->ticket,
+                'url'     => route('requester.tickets.rate', $this->ticket->public_token),
+            ]
             );
     }
 

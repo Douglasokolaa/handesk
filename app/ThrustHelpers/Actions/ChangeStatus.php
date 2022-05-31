@@ -13,14 +13,14 @@ class ChangeStatus extends Action
     {
         return [
             Select::make('status')->options([
-                    Ticket::STATUS_NEW      => ucfirst(Ticket::statusNameFor(Ticket::STATUS_NEW)),
-                    Ticket::STATUS_OPEN     => ucfirst(Ticket::statusNameFor(Ticket::STATUS_OPEN)),
-                    Ticket::STATUS_PENDING  => ucfirst(Ticket::statusNameFor(Ticket::STATUS_PENDING)),
-                    Ticket::STATUS_SOLVED   => ucfirst(Ticket::statusNameFor(Ticket::STATUS_SOLVED)),
-                    Ticket::STATUS_CLOSED   => ucfirst(Ticket::statusNameFor(Ticket::STATUS_CLOSED)),
-                    Ticket::STATUS_MERGED   => ucfirst(Ticket::statusNameFor(Ticket::STATUS_MERGED)),
-                    Ticket::STATUS_SPAM     => ucfirst(Ticket::statusNameFor(Ticket::STATUS_SPAM)),
-                ]
+                Ticket::STATUS_NEW      => ucfirst(Ticket::statusNameFor(Ticket::STATUS_NEW)),
+                Ticket::STATUS_OPEN     => ucfirst(Ticket::statusNameFor(Ticket::STATUS_OPEN)),
+                Ticket::STATUS_PENDING  => ucfirst(Ticket::statusNameFor(Ticket::STATUS_PENDING)),
+                Ticket::STATUS_SOLVED   => ucfirst(Ticket::statusNameFor(Ticket::STATUS_SOLVED)),
+                Ticket::STATUS_CLOSED   => ucfirst(Ticket::statusNameFor(Ticket::STATUS_CLOSED)),
+                Ticket::STATUS_MERGED   => ucfirst(Ticket::statusNameFor(Ticket::STATUS_MERGED)),
+                Ticket::STATUS_SPAM     => ucfirst(Ticket::statusNameFor(Ticket::STATUS_SPAM)),
+            ]
             ),
         ];
     }

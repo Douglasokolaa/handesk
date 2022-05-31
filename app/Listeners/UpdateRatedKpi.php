@@ -12,7 +12,6 @@ class UpdateRatedKpi
      * Handle the event.
      *
      * @param  TicketRated  $event
-     *
      * @return void
      */
     public function handle(TicketRated $event)

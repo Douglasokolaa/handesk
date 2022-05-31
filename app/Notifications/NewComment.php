@@ -26,7 +26,6 @@ class NewComment extends Notification implements ShouldQueue
      * Get the notification's delivery channels.
      *
      * @param  mixed  $notifiable
-     *
      * @return array
      */
     public function via($notifiable)
@@ -34,9 +33,10 @@ class NewComment extends Notification implements ShouldQueue
         if (isset($notifiable->settings) && $notifiable->settings->ticket_updated_notification == false) {
             return [];
         }
-        if (method_exists($notifiable, 'shouldBeNotified') && !$notifiable->shouldBeNotified() ){
+        if (method_exists($notifiable, 'shouldBeNotified') && ! $notifiable->shouldBeNotified()) {
             return [];
         }
+
         return (method_exists($notifiable, 'routeNotificationForSlack') && $notifiable->routeNotificationForSlack() != null) ? ['slack'] : ['mail'];
     }
 
@@ -44,7 +44,6 @@ class NewComment extends Notification implements ShouldQueue
      * Get the mail representation of the notification.
      *
      * @param  mixed  $notifiable
-     *
      * @return \Illuminate\Notifications\Messages\MailMessage
      */
     public function toMail($notifiable)
@@ -53,11 +52,11 @@ class NewComment extends Notification implements ShouldQueue
             ->subject(__('notification.ticketUpdated').": #{$this->ticket->id}: {$this->ticket->title}")
             ->replyTo(config('mail.fetch.username'))
             ->view('emails.ticket', [
-                    'title'   => __('notification.ticketUpdated'),
-                    'ticket'  => $this->ticket,
-                    'comment' => $this->comment,
-                    'url'     => $notifiable instanceof Requester ? route('requester.tickets.show', $this->ticket->public_token) : route('tickets.show', $this->ticket),
-                ]
+                'title'   => __('notification.ticketUpdated'),
+                'ticket'  => $this->ticket,
+                'comment' => $this->comment,
+                'url'     => $notifiable instanceof Requester ? route('requester.tickets.show', $this->ticket->public_token) : route('tickets.show', $this->ticket),
+            ]
             );
         if ($this->shouldUseAgentName()) {
             $mail->from(config('mail.fetch.username'), $this->comment->author()->name);
@@ -86,7 +85,6 @@ class NewComment extends Notification implements ShouldQueue
      * Get the array representation of the notification.
      *
      * @param  mixed  $notifiable
-     *
      * @return array
      */
     public function toArray($notifiable)

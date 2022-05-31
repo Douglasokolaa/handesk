@@ -2,7 +2,6 @@
 
 namespace App\Services;
 
-use Config;
 use DrewM\MailChimp\MailChimp as MailServer;
 
 class Mailchimp

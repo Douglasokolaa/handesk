@@ -17,7 +17,7 @@ class SettingsController extends Controller
     public function update(Settings $setting)
     {
         $this->validate(request(), [
-        'slack_webhook_url' => 'nullable|url',
+            'slack_webhook_url' => 'nullable|url',
         ]);
         $setting->update(request()->all());
 

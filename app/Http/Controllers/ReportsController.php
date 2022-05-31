@@ -25,15 +25,15 @@ class ReportsController extends Controller
     public function analytics()
     {
         return view('reports.analytics', [
-           'metrics' => [
-               (new TicketsCountMetric),
-               (new RatingAverageMetric),
-               (new SolvedMetric),
-               (new NewTicketsMetric),
-               (new NewTicketsByMonthMetric),
-               (new TicketTypeMetric),
-               (new TeamTicketsMetric),
-           ],
+            'metrics' => [
+                (new TicketsCountMetric),
+                (new RatingAverageMetric),
+                (new SolvedMetric),
+                (new NewTicketsMetric),
+                (new NewTicketsByMonthMetric),
+                (new TicketTypeMetric),
+                (new TeamTicketsMetric),
+            ],
         ]);
     }
 }
